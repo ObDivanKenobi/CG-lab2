@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MatrixNamespace;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -114,6 +115,13 @@ namespace lab2
             result.Z += p2.Z;
             return result;
         }
+        
+        public static Point3D operator *(Point3D p1, double a)
+        {
+            if ((p1 == null))
+                throw new ArgumentNullException();
+            return new Point3D(p1.X*a, p1.Y*a, p1.Z*a);
+        }
 
         public static Point3D operator -(Point3D p1, Point3D p2)
         {
@@ -134,6 +142,38 @@ namespace lab2
         public Point ToPoint()
         {
             return new Point((int)X, (int)Y);
+        }
+
+        /// <summary>
+        /// Преобразует точку в вектор-столбец
+        /// </summary>
+        /// <returns></returns>
+        public Matrix ToMatrix()
+        {
+            Matrix point = new Matrix(m: 3, n: 1);
+            point[0, 0] = X;
+            point[1, 0] = Y;
+            point[2, 0] = Z;
+
+            return point;
+        }
+
+        /// <summary>
+        /// Преобразует координаты точки согласно переданной матрице преобразования
+        /// </summary>
+        /// <param name="transformationMatrix">матрица преобразования</param>
+        /// <returns></returns>
+        public Point3D Transform(Matrix transformationMatrix)
+        {
+            if (!transformationMatrix.IsSquare || transformationMatrix.N != 3)
+                throw new ArgumentException("Матрица трансформации должна быть 3x3 матрицей!");
+
+            if (transformationMatrix == null)
+                throw new ArgumentNullException("Матрица трансформации не должна быть null!");
+
+            Matrix point = ToMatrix();
+            point = 1 / Math.Sqrt(6) * transformationMatrix * point;
+            return new Point3D(point[0, 0], point[1, 0], point[2, 0]);
         }
         #endregion
     }

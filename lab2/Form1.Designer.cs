@@ -159,7 +159,7 @@
             this.trackBarRadius.Name = "trackBarRadius";
             this.trackBarRadius.Size = new System.Drawing.Size(193, 45);
             this.trackBarRadius.TabIndex = 3;
-            this.trackBarRadius.Value = 3;
+            this.trackBarRadius.Value = 9;
             this.trackBarRadius.ValueChanged += new System.EventHandler(this.trackBarRadius_ValueChanged);
             // 
             // label5
@@ -181,7 +181,7 @@
             this.trackBarHeight.Name = "trackBarHeight";
             this.trackBarHeight.Size = new System.Drawing.Size(193, 45);
             this.trackBarHeight.TabIndex = 3;
-            this.trackBarHeight.Value = 5;
+            this.trackBarHeight.Value = 10;
             this.trackBarHeight.ValueChanged += new System.EventHandler(this.trackBarHeight_ValueChanged);
             // 
             // label6

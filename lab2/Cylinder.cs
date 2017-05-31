@@ -9,7 +9,7 @@ namespace lab2
     public class Cylinder
     {
         // Пикселов на условную единицу
-        static double step = 30;
+        static double step = 60;
 
         //Радиус основания в условных единицах.
         int radius;
@@ -21,7 +21,7 @@ namespace lab2
         List<Point3D> points;
      
         //множитель числа вершин в основании
-        static int n = 10;
+        static int n = 100000;
 
         //центр нижнего основания
         Point3D center;
@@ -31,7 +31,7 @@ namespace lab2
         /// </summary>
         public int Count
         {
-            get { return 4 * radius * n; } //по radius*n в основаниях и 2*radius*n (потому что они треугольные) в боковой поверхности
+            get { return 3 * radius * n; } //по radius*n в основаниях и 2*radius*n (потому что они треугольные) в боковой поверхности
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace lab2
         /// </summary>
         /// <param name="i"></param>
         /// <returns></returns>
-        public Triangle3D this[int i]
+        public Polygon this[int i]
         {
             get
             {
@@ -99,42 +99,32 @@ namespace lab2
                 int polygonsInBasement = radius * n;
                 //берется полигон из нижнего основания
                 if (i < polygonsInBasement)
-                    return new Triangle3D(points.First(), points[i], points[i + 1]);
+                    return new Triangle3D(points.First(), points[i + 1], points[i]);
+                //берётся последний полигон из нижнего основания
                 else if (i == polygonsInBasement)
-                    return new Triangle3D(points.First(), points[i], points[1]);
-                //берётся полигон из нижнего ряда боковой поверхности
-                else if (i < 2*polygonsInBasement)
-                    return new Triangle3D(points[i], points[i - polygonsInBasement], points[i - polygonsInBasement + 1]);
-                else if (i == 2 * polygonsInBasement)
-                    return new Triangle3D(points[i], points[i - polygonsInBasement], points[(i + 1 - polygonsInBasement) % polygonsInBasement]);
-                //берётся не последний полигон из верхнего ряда боковой поверхности
-                else if (i < 3*polygonsInBasement)
+                    return new Triangle3D(points.First(), points[1], points[i]);
+                //берётся не последний полигон из боковой поверхности
+                else if (i < 2 * polygonsInBasement)
                 {
-                    i = i - polygonsInBasement;
-                    return new Triangle3D(points[i], points[i + 1], points[i - polygonsInBasement + 1]);
+                    return new Quadrilateral3D(points[i], points[i - polygonsInBasement], points[i - polygonsInBasement + 1], points[i + 1]);
                 }
-                //берётся последний полигон из верхнего ряда боковой поверхности
-                else if (i == 3 * polygonsInBasement)
+                //берётся последний полигон из боковой поверхности
+                else if (i == 2 * polygonsInBasement)
                 {
-                    i = i - polygonsInBasement;
-                    return new Triangle3D(points[i], points[polygonsInBasement + 1], points[1]);
+                    return new Quadrilateral3D(points[i], points[i - polygonsInBasement], points[1], points[polygonsInBasement+1]);
                 }
                 //берется не последний полигон из верхнего основания
-                else if (i < 4 * polygonsInBasement)
+                else if (i < 3 * polygonsInBasement)
                 {
-                    i = i - 2 * polygonsInBasement;
-                    return new Triangle3D(points[i], points[i + 1], points.Last());
+                    i = i - polygonsInBasement;
+                    return new Triangle3D(points.Last(), points[i], points[i + 1]);
                 }
                 //берется последний полигон из верхнего основания
                 else
                 {
-                    i = i - 2 * polygonsInBasement;
-                    return new Triangle3D(points[i], points[polygonsInBasement + 1], points.Last());
+                    i = i - polygonsInBasement;
+                    return new Triangle3D(points.Last(), points[i], points[polygonsInBasement + 1]);
                 }
-            }
-            set
-            {
-
             }
         }
 

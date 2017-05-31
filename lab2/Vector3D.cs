@@ -71,7 +71,7 @@ namespace lab2
         /// <returns>Вектор единичной длины, сонаправленный данному</returns>
         public Vector3D Normalize()
         {
-            double invertedLength = 1 / Lenght();
+            double invertedLength = 1 / Length();
             return new Vector3D(X * invertedLength, Y * invertedLength, Z * invertedLength);
         }
 
@@ -83,10 +83,15 @@ namespace lab2
             return v1.X * v2.X + v1.Y * v2.Y + v1.Z * v2.Z;
         }
 
+        public static Vector3D CrossProduct(Vector3D a, Vector3D b)
+        {
+            return new Vector3D(a.Y * b.Z - a.Z * b.Y, a.Z * b.X - a.X * b.Z, a.X * b.Y - a.Y * b.X);
+        }
+
         /// <summary>
         /// Длина (норма) вектора.
         /// </summary>
-        public double Lenght()
+        public double Length()
         {
             return Math.Pow(X * X + Y * Y + Z * Z, 0.5);
         }
@@ -101,7 +106,7 @@ namespace lab2
         {
             if ((v1 == null) || (v2 == null))
                 throw new ArgumentNullException();
-            double tmp = v1.Lenght() * v2.Lenght();
+            double tmp = v1.Length() * v2.Length();
             if (tmp == 0)
                 return 0;
             return DotProduct(v1, v2) / tmp;

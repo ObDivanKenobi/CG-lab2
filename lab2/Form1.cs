@@ -24,7 +24,7 @@ namespace lab2
         {
             InitializeComponent();
             handler = new Handler(pictureBox.Width, pictureBox.Height, trackBarRadius.Value, trackBarHeight.Value);
-            light = new Point3D(-500, 500, 0);
+            light = new Point3D(-2000, 2000, 0);
             textBoxLightX.Text = "-500";
             textBoxLightY.Text = "500";
             textBoxLightZ.Text = "0";
@@ -33,8 +33,8 @@ namespace lab2
 
         private void buttonAccept_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Свет выключен за неуплату.", "Алярм!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            return;
+            //MessageBox.Show("Свет выключен за неуплату.", "Алярм!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //return;
 
             int x, y, z;
             if (!int.TryParse(textBoxLightX.Text, out x)
