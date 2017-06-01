@@ -288,6 +288,7 @@
             this.buttonSetAmbient.TabIndex = 2;
             this.buttonSetAmbient.Text = "Ок";
             this.buttonSetAmbient.UseVisualStyleBackColor = true;
+            this.buttonSetAmbient.Click += new System.EventHandler(this.buttonSetAmbient_Click);
             // 
             // Form1
             // 

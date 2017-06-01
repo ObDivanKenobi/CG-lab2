@@ -99,7 +99,7 @@ namespace lab2
         private void buttonSetAmbient_Click(object sender, EventArgs e)
         {
             int ambient;
-            if (!int.TryParse(textBoxBrightness.Text, out ambient))
+            if (!int.TryParse(textBoxAmbient.Text, out ambient))
             {
                 MessageBox.Show("Неверное значение яркости - не удалось преобразовать в число.", "Алярм!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
