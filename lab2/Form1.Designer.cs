@@ -45,6 +45,12 @@
             this.trackBarPhi = new System.Windows.Forms.TrackBar();
             this.label7 = new System.Windows.Forms.Label();
             this.trackBarPsi = new System.Windows.Forms.TrackBar();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxBrightness = new System.Windows.Forms.TextBox();
+            this.buttonSetBrightness = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBoxAmbient = new System.Windows.Forms.TextBox();
+            this.buttonSetAmbient = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.groupBoxLight.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarRadius)).BeginInit();
@@ -61,7 +67,7 @@
             this.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox.Location = new System.Drawing.Point(12, 12);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(388, 348);
+            this.pictureBox.Size = new System.Drawing.Size(410, 421);
             this.pictureBox.TabIndex = 0;
             this.pictureBox.TabStop = false;
             // 
@@ -75,7 +81,7 @@
             this.groupBoxLight.Controls.Add(this.label2);
             this.groupBoxLight.Controls.Add(this.textBoxLightX);
             this.groupBoxLight.Controls.Add(this.label1);
-            this.groupBoxLight.Location = new System.Drawing.Point(406, 12);
+            this.groupBoxLight.Location = new System.Drawing.Point(428, 12);
             this.groupBoxLight.Name = "groupBoxLight";
             this.groupBoxLight.Size = new System.Drawing.Size(202, 134);
             this.groupBoxLight.TabIndex = 1;
@@ -144,7 +150,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(414, 162);
+            this.label4.Location = new System.Drawing.Point(436, 232);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 2;
@@ -153,20 +159,20 @@
             // trackBarRadius
             // 
             this.trackBarRadius.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBarRadius.Location = new System.Drawing.Point(415, 179);
+            this.trackBarRadius.Location = new System.Drawing.Point(437, 249);
             this.trackBarRadius.Maximum = 9;
             this.trackBarRadius.Minimum = 1;
             this.trackBarRadius.Name = "trackBarRadius";
             this.trackBarRadius.Size = new System.Drawing.Size(193, 45);
             this.trackBarRadius.TabIndex = 3;
-            this.trackBarRadius.Value = 9;
+            this.trackBarRadius.Value = 5;
             this.trackBarRadius.ValueChanged += new System.EventHandler(this.trackBarRadius_ValueChanged);
             // 
             // label5
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(414, 213);
+            this.label5.Location = new System.Drawing.Point(436, 283);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 2;
@@ -175,7 +181,7 @@
             // trackBarHeight
             // 
             this.trackBarHeight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBarHeight.Location = new System.Drawing.Point(415, 230);
+            this.trackBarHeight.Location = new System.Drawing.Point(437, 300);
             this.trackBarHeight.Maximum = 20;
             this.trackBarHeight.Minimum = 2;
             this.trackBarHeight.Name = "trackBarHeight";
@@ -188,7 +194,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(414, 264);
+            this.label6.Location = new System.Drawing.Point(436, 334);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(117, 13);
             this.label6.TabIndex = 2;
@@ -197,7 +203,7 @@
             // trackBarPhi
             // 
             this.trackBarPhi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBarPhi.Location = new System.Drawing.Point(415, 281);
+            this.trackBarPhi.Location = new System.Drawing.Point(437, 351);
             this.trackBarPhi.Maximum = 18;
             this.trackBarPhi.Minimum = -18;
             this.trackBarPhi.Name = "trackBarPhi";
@@ -209,7 +215,7 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(414, 315);
+            this.label7.Location = new System.Drawing.Point(436, 385);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(106, 13);
             this.label7.TabIndex = 2;
@@ -218,7 +224,7 @@
             // trackBarPsi
             // 
             this.trackBarPsi.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBarPsi.Location = new System.Drawing.Point(415, 332);
+            this.trackBarPsi.Location = new System.Drawing.Point(437, 402);
             this.trackBarPsi.Maximum = 18;
             this.trackBarPsi.Minimum = -18;
             this.trackBarPsi.Name = "trackBarPsi";
@@ -226,18 +232,81 @@
             this.trackBarPsi.TabIndex = 3;
             this.trackBarPsi.ValueChanged += new System.EventHandler(this.OnAngleChange);
             // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(425, 149);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(50, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Яркость";
+            // 
+            // textBoxBrightness
+            // 
+            this.textBoxBrightness.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxBrightness.Location = new System.Drawing.Point(428, 165);
+            this.textBoxBrightness.Name = "textBoxBrightness";
+            this.textBoxBrightness.Size = new System.Drawing.Size(121, 20);
+            this.textBoxBrightness.TabIndex = 1;
+            // 
+            // buttonSetBrightness
+            // 
+            this.buttonSetBrightness.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSetBrightness.Location = new System.Drawing.Point(555, 163);
+            this.buttonSetBrightness.Name = "buttonSetBrightness";
+            this.buttonSetBrightness.Size = new System.Drawing.Size(75, 23);
+            this.buttonSetBrightness.TabIndex = 2;
+            this.buttonSetBrightness.Text = "Ок";
+            this.buttonSetBrightness.UseVisualStyleBackColor = true;
+            this.buttonSetBrightness.Click += new System.EventHandler(this.buttonSetBrightness_Click);
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(425, 193);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(114, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Фоновое освещение";
+            // 
+            // textBoxAmbient
+            // 
+            this.textBoxAmbient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxAmbient.Location = new System.Drawing.Point(428, 209);
+            this.textBoxAmbient.Name = "textBoxAmbient";
+            this.textBoxAmbient.Size = new System.Drawing.Size(121, 20);
+            this.textBoxAmbient.TabIndex = 1;
+            // 
+            // buttonSetAmbient
+            // 
+            this.buttonSetAmbient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonSetAmbient.Location = new System.Drawing.Point(555, 207);
+            this.buttonSetAmbient.Name = "buttonSetAmbient";
+            this.buttonSetAmbient.Size = new System.Drawing.Size(75, 23);
+            this.buttonSetAmbient.TabIndex = 2;
+            this.buttonSetAmbient.Text = "Ок";
+            this.buttonSetAmbient.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(620, 372);
+            this.ClientSize = new System.Drawing.Size(642, 445);
+            this.Controls.Add(this.buttonSetAmbient);
+            this.Controls.Add(this.buttonSetBrightness);
             this.Controls.Add(this.trackBarPsi);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.trackBarPhi);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.trackBarHeight);
+            this.Controls.Add(this.textBoxAmbient);
+            this.Controls.Add(this.textBoxBrightness);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.trackBarRadius);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBoxLight);
             this.Controls.Add(this.pictureBox);
@@ -278,6 +347,12 @@
         private System.Windows.Forms.TrackBar trackBarPhi;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TrackBar trackBarPsi;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBoxBrightness;
+        private System.Windows.Forms.Button buttonSetBrightness;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBoxAmbient;
+        private System.Windows.Forms.Button buttonSetAmbient;
     }
 }
 

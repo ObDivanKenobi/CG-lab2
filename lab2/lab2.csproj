@@ -61,7 +61,6 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Handler.cs" />
-    <Compile Include="Line3D.cs" />
     <Compile Include="Matrix.cs" />
     <Compile Include="Point3D.cs" />
     <Compile Include="Program.cs" />

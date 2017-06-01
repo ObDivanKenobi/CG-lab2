@@ -24,10 +24,10 @@ namespace lab2
         {
             InitializeComponent();
             handler = new Handler(pictureBox.Width, pictureBox.Height, trackBarRadius.Value, trackBarHeight.Value);
-            light = new Point3D(-2000, 2000, 0);
-            textBoxLightX.Text = "-500";
-            textBoxLightY.Text = "500";
-            textBoxLightZ.Text = "0";
+            light = new Point3D(600, 600, 0);
+            textBoxLightX.Text = $"{light.X}";
+            textBoxLightY.Text = $"{light.Y}";
+            textBoxLightZ.Text = $"{light.Z}";
             pictureBox.Image = handler.SetLight(light);
         }
 
@@ -41,7 +41,7 @@ namespace lab2
                 || !int.TryParse(textBoxLightY.Text, out y)
                 || !int.TryParse(textBoxLightZ.Text, out z))
             {
-                MessageBox.Show("Некорректные координаты источника освещения!");
+                MessageBox.Show("Некорректные координаты источника освещения.", "Алярм!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -77,6 +77,41 @@ namespace lab2
         private void Form1_Resize(object sender, EventArgs e)
         {
             pictureBox.Image = handler.SetSize(pictureBox.Width, pictureBox.Height);
+        }
+
+        private void buttonSetBrightness_Click(object sender, EventArgs e)
+        {
+            int brightness;
+            if (!int.TryParse(textBoxBrightness.Text, out brightness))
+            {
+                MessageBox.Show("Неверное значение яркости - не удалось преобразовать в число.", "Алярм!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (brightness < 0 || brightness > 255)
+            {
+                MessageBox.Show("Неверное значение яркости. Яркость должна быть больше 0 и меньше либо равна 255.", "Алярм!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            pictureBox.Image = handler.SetBrightness(brightness);
+        }
+
+        private void buttonSetAmbient_Click(object sender, EventArgs e)
+        {
+            int ambient;
+            if (!int.TryParse(textBoxBrightness.Text, out ambient))
+            {
+                MessageBox.Show("Неверное значение яркости - не удалось преобразовать в число.", "Алярм!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (ambient < 0 || ambient > 255)
+            {
+                MessageBox.Show("Неверное значение яркости. Яркость должна быть больше 0 и меньше либо равна 255.", "Алярм!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            pictureBox.Image = handler.SetAmbient(ambient);
         }
     }
 }

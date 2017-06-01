@@ -21,17 +21,19 @@ namespace lab2
         List<Point3D> points;
      
         //множитель числа вершин в основании
-        static int n = 100000;
+        static int n = 100;
 
-        //центр нижнего основания
+        //центр тяжести
         Point3D center;
+
+        public List<Point3D> Points { get { return points; } }
 
         /// <summary>
         /// Количество полигонов в цилиндре.
         /// </summary>
         public int Count
         {
-            get { return 3 * radius * n; } //по radius*n в основаниях и 2*radius*n (потому что они треугольные) в боковой поверхности
+            get { return 3 * radius * n; } //по radius*n в основаниях и radius*n в боковой поверхности
         }
 
         /// <summary>
